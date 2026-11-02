@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<title>The 3-Step Paid Brand Deal Class · Lauren Waugh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap">
+<style>
+@font-face{font-family:"SFD";src:url(../assets/fonts/sfpro-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url(../assets/fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--ink:#f6ede6;--ink2:#fffaf6;--red:#9b1b30;--red2:#a57a3c;--deep:#5c0f1f;--cream:#2b1218;--mute:rgba(43,18,24,.66);--line:rgba(43,18,24,.12)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{overflow:hidden;background:#000;color:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,177.78vh);height:min(56.25vw,100vh);overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;overflow:hidden;container-type:size;background:var(--ink)}
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--red);width:0;transition:width .3s ease;z-index:5}
+#counter{position:fixed;right:14px;bottom:12px;z-index:5;font:12px/1 Inter,system-ui;color:var(--cream);opacity:.45;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+#hint{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:5;font:12px/1 Inter;color:var(--cream);opacity:.4;transition:opacity .6s}
+
+/* type */
+h1,h2,h3{font-family:SFD,"SF Pro Display",-apple-system,Inter,sans-serif;font-weight:700;margin:0;letter-spacing:-.02em;line-height:1.04}
+.h1{font-size:6.2cqw}.h2{font-size:4.6cqw}.h3{font-size:3.3cqw}
+p{margin:0}
+.sub{font-size:1.9cqw;line-height:1.4;color:var(--mute);margin-top:2.6cqh;max-width:46ch}
+.eye{font:600 1.15cqw/1 Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--red2);margin-bottom:3cqh}
+.r{color:var(--red2)}
+.brand{position:absolute;left:4cqw;top:5cqh;font:700 1.5cqw/1 SFD,Inter;color:var(--red2);letter-spacing:-.01em;z-index:3}
+
+/* layouts */
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8cqh 9cqw}
+.c .sub{margin-left:auto;margin-right:auto}
+.redbg{background:var(--red)} .redbg .sub{color:rgba(255,255,255,.82)} .redbg .eye{color:#fff;opacity:.8}
+.creambg{background:var(--cream);color:var(--ink)} .creambg .sub{color:rgba(14,13,13,.62)} .creambg .eye{color:var(--red)}
+.full img.bg{position:absolute;top:0;right:0;width:56%;height:100%;object-fit:cover}
+.full.rt img.bg{right:auto;left:0}
+.full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full.rt::after{background:linear-gradient(270deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full .tx{position:absolute;z-index:2;left:6cqw;top:50%;transform:translateY(-50%);max-width:40cqw}
+.full.rt .tx{left:auto;right:6cqw}
+.split{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.split .ph{position:relative;overflow:hidden}
+.split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.split .tx{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.split.rev .ph{order:2}
+.ph-frame{width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:1.4cqw}
+.framed{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6cqw;padding:0 7cqw}
+.framed .pic{height:72cqh;display:flex;align-items:center;justify-content:center}
+.framed .pic img{max-height:72cqh;max-width:100%;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.tilt{transform:rotate(-3deg)}
+.pol{background:#fff;padding:1.2cqw 1.2cqw 5cqh;border-radius:.4cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5);transform:rotate(-4deg)}
+.pol img{display:block;height:60cqh;width:auto;max-width:34cqw;object-fit:cover}
+.cluster{display:flex;gap:2cqw;justify-content:center;align-items:center;margin-top:5cqh}
+.cluster img{height:52cqh;width:auto;border-radius:1cqw;object-fit:cover;box-shadow:0 2cqh 6cqh rgba(0,0,0,.5)}
+.cluster img:nth-child(2){transform:translateY(-3cqh)}
+.cluster img:nth-child(odd){transform:rotate(-2deg)}
+
+/* nodes */
+.nodes{display:flex;align-items:flex-start;justify-content:center;gap:0;margin-top:9cqh;position:relative;width:100%}
+.node{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;padding:0 1.2cqw}
+.node .dot{width:7.4cqw;height:7.4cqw;border-radius:50%;background:var(--ink2);border:.25cqw solid var(--red);display:grid;place-items:center;font:700 2.6cqw SFD;color:var(--cream);position:relative;z-index:2}
+.node:not(:last-child)::after{content:"";position:absolute;top:3.7cqw;left:50%;width:100%;height:.25cqw;background:linear-gradient(90deg,var(--red),rgba(70,2,33,.25));z-index:1}
+.node b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:3cqh}
+.node span{display:block;font-size:1.35cqw;line-height:1.4;color:var(--mute);margin-top:1.2cqh;max-width:22ch}
+.creambg .node .dot{background:#fff;color:var(--ink)} .creambg .node span{color:rgba(14,13,13,.6)}
+
+/* cards */
+.grid{display:grid;gap:1.6cqw;margin-top:7cqh;width:100%}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:1.2cqw;padding:3.4cqh 1.8cqw;text-align:left}
+.card .n{font:700 1.2cqw SFD;color:var(--red2);letter-spacing:.1em}
+.card b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:1.4cqh}
+.card span{display:block;font-size:1.3cqw;line-height:1.45;color:var(--mute);margin-top:1cqh}
+.creambg .card{background:#fff;border-color:rgba(14,13,13,.08)} .creambg .card span{color:rgba(14,13,13,.6)}
+
+/* myth */
+.myth{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.myth>div{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.myth .m{background:var(--ink2)} .myth .m h2{color:rgba(245,239,233,.45);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:.35cqw}
+.myth .t{background:var(--red)}
+.myth .lab{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3cqh;opacity:.75}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:6cqh;width:100%}
+.cmp .col{border-radius:1.2cqw;padding:3.6cqh 2.4cqw;text-align:left}
+.cmp .a{background:var(--ink2);border:1px solid var(--line)} .cmp .a h3{color:rgba(245,239,233,.5)}
+.cmp .b{background:var(--red)}
+.cmp ul{list-style:none;margin:2.6cqh 0 0;padding:0}
+.cmp li{font-size:1.65cqw;line-height:1.35;padding:1.5cqh 0;border-top:1px solid rgba(255,255,255,.14)}
+.cmp .a li{color:var(--mute)}
+
+/* quote */
+.q{position:absolute;inset:0;display:grid;grid-template-columns:38cqw 1fr;align-items:center}
+.q .ph{height:100%;position:relative}.q .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.q .tx{padding:0 7cqw}
+.q blockquote{margin:0;font:700 3.4cqw/1.18 SFD;letter-spacing:-.015em}
+.q cite{display:block;margin-top:4cqh;font:600 1.3cqw Inter;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.stars{color:var(--red2);font-size:1.8cqw;letter-spacing:.3em;margin-bottom:3cqh}
+
+/* chat prompt */
+.chat{display:inline-flex;align-items:center;gap:1.2cqw;background:#fff;color:var(--ink);border-radius:5cqw;padding:2cqh 2.4cqw 2cqh 1.4cqw;margin-top:6cqh;box-shadow:0 2cqh 6cqh rgba(0,0,0,.35)}
+.chat i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;font:700 1.4cqw SFD;font-style:normal}
+.chat b{font:700 2.4cqw SFD}
+.caret{display:inline-block;width:.18cqw;height:2.6cqw;background:var(--red);margin-left:.4cqw;animation:blink 1s steps(1) infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
+
+/* quiz */
+.quiz{display:flex;gap:2cqw;margin-top:7cqh}
+.quiz div{width:22cqw;padding:3.6cqh 0;border-radius:1.2cqw;border:.2cqw solid var(--line);font:700 2.8cqw SFD;transition:all .5s}
+.quiz .on{background:var(--red);border-color:var(--red)}
+.quiz .off{opacity:.3}
+.reveal{opacity:0;transform:translateY(2cqh);transition:all .6s;margin-top:5cqh}
+.reveal.in{opacity:1;transform:none}
+
+/* stack */
+.stack{width:100%;margin-top:5cqh;display:flex;flex-direction:column;gap:1.2cqh}
+.stack .row{display:flex;align-items:center;justify-content:space-between;background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:2.1cqh 2.2cqw;font:700 1.8cqw SFD;text-align:left}
+.stack .row em{font:500 1.25cqw Inter;font-style:normal;color:var(--mute)}
+.stack .row.bn{border-color:rgba(168,194,86,.6)}
+.stack .row.bn em{color:var(--red2)}
+.btn{display:inline-block;margin-top:6cqh;background:var(--red);color:#fff;font:700 2.2cqw SFD;padding:2.8cqh 4cqw;border-radius:5cqw;box-shadow:0 2cqh 6cqh rgba(70,2,33,.4)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:4cqw;padding:1.4cqh 2cqw;font-size:1.4cqw;color:var(--mute);margin-top:3cqh}
+
+/* animations on mount */
+.a1,.a2,.a3,.a4,.a5{opacity:0;transform:translateY(2.4cqh);animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
+.a2{animation-delay:.18s}.a3{animation-delay:.36s}.a4{animation-delay:.54s}.a5{animation-delay:.72s}
+@keyframes up{to{opacity:1;transform:none}}
+.zoom img.bg{animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+html.reduced .a1,html.reduced .a2,html.reduced .a3,html.reduced .a4,html.reduced .a5{animation:none;opacity:1;transform:none}
+html.reduced .zoom img.bg{animation:none}
+
+/* demos */
+.meter{width:70cqw;margin-top:8cqh;position:relative}
+.meter .track{height:2.2cqh;border-radius:2cqh;background:linear-gradient(90deg,#3a3434,var(--red))}
+.meter .lbls{display:flex;justify-content:space-between;margin-top:2.4cqh;font:600 1.5cqw Inter;color:var(--mute)}
+.meter .needle{position:absolute;top:-2.4cqh;left:0;width:.5cqw;height:7cqh;background:var(--cream);border-radius:1cqw;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.meter .tag{position:absolute;top:-9cqh;transform:translateX(-50%);font:700 1.6cqw SFD;background:var(--cream);color:var(--ink);padding:1cqh 1.2cqw;border-radius:.6cqw;white-space:nowrap;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.kill{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:6cqh;width:100%}
+.kill div{background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:3cqh 1.4cqw;text-align:left;opacity:.15;transition:all .45s}
+.kill div.on{opacity:1;border-color:rgba(168,194,86,.55)}
+.kill div.big{background:var(--red);border-color:var(--red)}
+.kill i{font:700 1.2cqw SFD;color:var(--red2);font-style:normal;letter-spacing:.1em}
+.kill div.big i{color:#fff}
+.kill b{display:block;font:700 1.75cqw/1.2 SFD;margin-top:1.2cqh}
+.tri{width:84cqh;height:62cqh;margin-top:4cqh;overflow:visible}
+.tri line{stroke:var(--red);stroke-width:3;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1s ease}
+.tri.go line{stroke-dashoffset:0}
+.tri circle{fill:var(--ink2);stroke:var(--red);stroke-width:3}
+.tri text{fill:var(--cream);font:700 18px SFD,Inter;text-anchor:middle}
+.tri .ctr{fill:var(--red2);font-size:13px;opacity:0;transition:opacity .6s 1.2s}
+.tri.go .ctr{opacity:1}
+.thermo{width:76cqw;margin-top:9cqh;position:relative}
+.thermo .tube{height:3cqh;border-radius:3cqh;background:#2a2525;overflow:hidden}
+.thermo .fill{height:100%;width:0;background:linear-gradient(90deg,#e8cfd6,var(--red));transition:width 3.2s cubic-bezier(.4,.1,.3,1)}
+.thermo .steps{display:flex;justify-content:space-between;margin-top:3cqh}
+.thermo .steps span{font:700 1.6cqw SFD;opacity:.25;transition:opacity .4s;width:20%;text-align:center}
+.thermo .steps span.on{opacity:1}
+.big{font:700 22cqh/1 SFD;color:var(--red2);letter-spacing:-.04em}
+.pp{display:flex;gap:4cqw;align-items:center;margin-top:7cqh}
+.pp div{width:20cqw;padding:4cqh 0;border-radius:1.2cqw;font:700 2.6cqw SFD;background:var(--ink2);border:1px solid var(--line)}
+.pp .pull{animation:pull 2.4s ease-in-out infinite}
+.pp .push{animation:push 2.4s ease-in-out infinite;background:var(--red);border-color:var(--red)}
+@keyframes pull{50%{transform:translateX(3cqw)}}
+@keyframes push{50%{transform:translateX(-3cqw)}}
+html.reduced .pp div{animation:none}
+.cover{height:66cqh;border-radius:1cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.55);transform:rotate(-4deg)}
+.shots{display:flex;gap:2.4cqw;justify-content:center;margin-top:5cqh}
+.shots img{height:58cqh;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.shots img:nth-child(1){transform:rotate(-3deg)}.shots img:nth-child(3){transform:rotate(3deg)}
+.faq .q2{font:700 4.4cqw/1.12 SFD;max-width:20ch}
+.faq .tag{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--red2);margin-bottom:4cqh}
+
+/* Lauren's own colours (her Stan store): white, black, orchid pink. One solid tone, plain photos, no fades. */
+:root{--ink:#ffffff;--ink2:#fbf0f7;--red:#111111;--red2:#a8478f;--deep:#000;--cream:#111111;--mute:rgba(17,17,17,.66);--line:rgba(17,17,17,.13)}
+body{background:#ffffff}
+#bar{background:#e595d3} #counter,#hint{color:#111}
+h1,h2,h3,.node b,.card b,.q blockquote,.stack .row,.faq .q2,.big,.chat b,.btn,.quiz div{font-family:"DM Sans",SFD,Inter,sans-serif;font-weight:700}
+.r{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:#c264ad}
+.brand{color:#111}
+.redbg,.myth .t,.cmp .b,.quiz .on{background:#111;color:#fff}
+.redbg .eye{color:#f6cbe9;opacity:1} .redbg .sub,.myth .t .lab{color:rgba(255,255,255,.78)} .cmp .b li{border-top-color:rgba(255,255,255,.16)}
+.redbg .brand{color:#f6cbe9}
+.creambg{background:#f6cbe9;color:#111} .creambg .sub{color:rgba(17,17,17,.72)} .creambg .eye,.faq .tag{color:#111}
+.chat{color:#111} .chat i{background:#f6cbe9;color:#111} .caret{background:#e595d3}
+.creambg .chat{background:#111;color:#fff}
+.btn{background:#e595d3;color:#111;box-shadow:none}
+.full::after,.full.rt::after{display:none}
+.full img.bg{width:50%;mask-image:none;-webkit-mask-image:none}
+.full .tx{max-width:38cqw}
+.split .ph{border-radius:0;box-shadow:none}
+.q .ph{border-radius:0;box-shadow:none}
+.myth .m{background:var(--ink2)} .myth .m h2{color:rgba(17,17,17,.42)}
+.cmp .a h3{color:rgba(17,17,17,.45)}
+.myth .t h2 .r{color:#111}
+.stack .row.bn,.kill div.on{border-color:#e595d3}
+.kill div.big{background:#f6cbe9;color:#111;font:inherit;letter-spacing:normal} .kill div.big i{color:#111}
+.meter .track{background:linear-gradient(90deg,#f3e3ee,#e595d3)}
+.thermo .tube{background:#f3e3ee} .thermo .fill{background:#e595d3}
+.node .dot{background:#f6cbe9;border-color:#111;color:#111}
+.node:not(:last-child)::after{background:#111}
+.redbg .node .dot{background:#f6cbe9} .redbg .node span{color:rgba(255,255,255,.7)}
+.tri line{stroke:#111} .tri circle{fill:#f6cbe9;stroke:#111} .tri text{fill:#111} .tri .ctr{fill:#a8478f}
+.redbg .btn{background:#f6cbe9!important;color:#111!important}
+.framed .pic img,.cluster img,.shots img,.pol,.cover,.card,.stack .row,.kill div,.pp div,.chat{box-shadow:none}
+.tilt,.pol,.cover,.cluster img:nth-child(odd),.cluster img:nth-child(2){transform:none}
+.framed .pic img,.shots img,.cover{border-radius:.6cqw}
+.big{color:#111}
+.big .num{background:#f6cbe9;padding:0 .08em}
+.a1,.a2,.a3,.a4,.a5{animation:none;opacity:1;transform:none}
+.reveal{transition:none}
+.zoom img.bg{animation:none}
+.kill div,.quiz div{transition:none}
+.money{display:flex;gap:1.6cqw;margin-top:6cqh;align-items:center;font:800 3cqw "DM Sans",SFD}
+.money span{background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:2.6cqh 2cqw}
+.money span.on{background:#f6cbe9;border-color:#111}
+.money em{font-style:normal;color:var(--mute);font-size:2.4cqw}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="hint">Click, or press → to advance</div>
+
+<script>
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+    if (current > 0) document.getElementById('hint').style.opacity = 0;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+  function load(slides){ SLIDES = slides || []; show((+new URLSearchParams(location.search).get('s')||1)-1); }
+  return { load, show, next, prev, reduced };
+})();
+
+/* ---------- slide builders (design + copy live here) ---------- */
+const I = n => `../assets/img/deck/${n}?v=4`;
+const P = {
+  stand:'l-blazer-stand.jpg', stand2:'l-blazer-stand2.jpg', stand3:'l-dream-client-sign2.jpg', chair:'l-chair-laptop2.jpg', chair2:'l-chair-laptop.jpg',
+  sofa:'l-sofa-laptop2.jpg', sofa2:'l-leather-sofa.jpg', leather:'l-leather-sofa2.jpg', green:'l-green-chair2.jpg', green2:'l-green-chair.jpg',
+  sign:'l-dream-client-sign.jpg', laugh:'l-laughing-chair.jpg', laugh2:'l-laughing-chair2.jpg', phone:'l-phone-ok.jpg',
+  selfie:'l-ugc-selfie3.jpg', selfie3:'l-ugc-selfie2.jpg'
+};
+const B = `<div class="brand">Lauren Waugh</div>`;
+const eye = t => t ? `<div class="eye a1">${t}</div>` : '';
+const sub = t => t ? `<p class="sub a3">${t}</p>` : '';
+
+const full = (img, h, s, o={}) => `<div class="full zoom ${o.rt?'rt':''}" style="position:absolute;inset:0">
+  <img class="bg" src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}">
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const split = (img, h, s, o={}) => `<div class="split ${o.rev?'rev':''}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}"></div>
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const text = (h, s, o={}) => `<div class="c ${o.bg||''}">${B}${eye(o.eye)}<h1 class="${o.size||'h1'} a2">${h}</h1>${sub(s)}</div>`;
+const divider = (n, h, s) => `<div class="c redbg"><div class="eye a1">${n}</div><h1 class="h1 a2" style="font-size:8cqw">${h}</h1>${sub(s)}</div>`;
+const framed = (img, h, s, o={}) => `<div class="framed ${o.bg||''}" ${o.bg?'style="position:absolute;inset:0"':''}>
+  <div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><img class="${o.tilt?'tilt':''}" src="${I(img)}" alt=""></div></div>`;
+const polaroid = (img, h, s, o={}) => `<div class="framed"><div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><div class="pol"><img src="${I(P[img]||img)}" alt=""></div></div></div>`;
+const cluster = (imgs, h, s, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h3 a2">${h}</h2>
+  <div class="cluster a3">${imgs.map(i=>`<img src="${I(P[i]||i)}" alt="">`).join('')}</div>${s?`<p class="sub a4" style="margin-top:3cqh">${s}</p>`:''}</div>`;
+const nodes = (h, items, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="nodes a3">${items.map((it,i)=>`<div class="node"><div class="dot">${it[2]||i+1}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const cards = (h, items, cols, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="grid g${cols} a3">${items.map((it,i)=>`<div class="card"><div class="n">${String(i+1).padStart(2,'0')}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const myth = (m, t) => `<div class="myth"><div class="m"><div class="lab">Myth</div><h2 class="h2 a1">${m}</h2></div>
+  <div class="t"><div class="lab">Truth</div><h2 class="h2 a3">${t}</h2></div></div>`;
+const compare = (h, a, al, b, bl, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h2 a1">${h}</h2><div class="cmp">
+  <div class="col a a2"><h3 class="h3">${a}</h3><ul>${al.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  <div class="col b a4"><h3 class="h3">${b}</h3><ul>${bl.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
+const quote = (img, q, who, o={}) => `<div class="q ${o.bg||''}" style="${o.bg?'':'background:var(--ink)'}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt=""></div>
+  <div class="tx"><div class="stars a1">★★★★★</div><blockquote class="a2">${q}</blockquote><cite class="a3">${who}</cite></div></div>`;
+const says = (img, q) => `<div class="q" style="background:var(--ink)"><div class="ph"><img src="${I(P[img]||img)}" alt=""></div>
+  <div class="tx"><blockquote class="a2">&ldquo;${q}&rdquo;</blockquote><cite class="a3">Lauren</cite></div></div>`;
+const yes = (h, word='YES', o={}) => `<div class="c ${o.bg||'redbg'}">${eye(o.eye||'Type in the chat')}<h2 class="h2 a2" style="max-width:22ch">${h}</h2>
+  <div class="chat a4"><i>N</i><b>${word}</b><span class="caret"></span></div></div>`;
+const faq = q => `<div class="c faq creambg" style="position:absolute;inset:0">${B}<div class="tag a1">Questions I get asked</div><div class="q2 a2">${q}</div></div>`;
+
+
+/* demos */
+const meter = (h, s, at, label) => ({ html:`<div class="c">${eye('Where most new creators end up')}<h2 class="h2 a1">${h}</h2>
+  <div class="meter a2"><div class="tag" style="left:0">${label}</div><div class="needle" style="left:0"></div><div class="track"></div>
+  <div class="lbls"><span>Free content, then give up</span><span>Paid every month</span></div></div>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.needle'),t=el.querySelector('.tag');
+    const go=()=>{n.style.left=at+'%';t.style.left=at+'%'}; reduced?go():setTimeout(go,350);} });
+const killers = (focus) => ({ html:`<div class="c">${eye('The 7 mistakes that keep creators unpaid')}<h2 class="h2 a1">${focus?'The biggest one is waiting for brands to find you.':'Most new creators make at least three of these.'}</h2>
+  <div class="kill">${['Waiting for more followers','No portfolio, or a messy one','Saying yes to free product forever','Long pitches about yourself','Freezing when they ask your rate','Stopping after the first no','Waiting for brands to find you',null]
+   .map((k,i)=>k?`<div data-i="${i}"><i>${String(i+1).padStart(2,'0')}</i><b>${k}</b></div>`:'<div style="visibility:hidden"></div>').join('')}</div></div>`,
+  onMount(el,{reduced}){ const ds=[...el.querySelectorAll('.kill div[data-i]')];
+    if(focus){ds.forEach(d=>{d.classList.add('on'); if(d.dataset.i==='6') d.classList.add('big'); else d.style.opacity=.25}); return;}
+    ds.forEach((d,i)=>reduced?d.classList.add('on'):setTimeout(()=>d.classList.add('on'),400+i*260)); } });
+const triangle = (h, s, labels) => ({ html:`<div class="c">${eye(s)}<h2 class="h2 a1">${h}</h2>
+  <svg class="tri" viewBox="-60 -24 420 310"><line x1="150" y1="40" x2="40" y2="220"/><line x1="40" y1="220" x2="260" y2="220"/><line x1="260" y1="220" x2="150" y2="40"/>
+  <circle cx="150" cy="40" r="30"/><circle cx="40" cy="220" r="30"/><circle cx="260" cy="220" r="30"/>
+  <text x="150" y="46">1</text><text x="40" y="226">2</text><text x="260" y="226">3</text>
+  <text x="150" y="-4" style="font-size:14px">${labels[0]}</text><text x="40" y="276" style="font-size:14px">${labels[1]}</text><text x="260" y="276" style="font-size:14px">${labels[2]}</text>
+  <text class="ctr" x="150" y="168">Paid</text></svg></div>`,
+  onMount(el,{reduced}){ const t=el.querySelector('.tri'); reduced?t.classList.add('go'):setTimeout(()=>t.classList.add('go'),300);} });
+const thermo = { html:`<div class="c">${eye('Step 2 · Your pitch')}<h2 class="h2 a1">Who to pitch first.</h2>
+  <div class="thermo a2"><div class="tube"><div class="fill"></div></div>
+  <div class="steps"><span>Huge brands</span><span>Mid-size brands</span><span>Brands you already use</span><span>Agencies</span><span>Your odds</span></div></div>
+  <p class="sub a3">Agencies run many brands at once. One yes can turn into several deals.</p></div>`,
+  onMount(el,{reduced}){ const f=el.querySelector('.fill'),ss=[...el.querySelectorAll('.steps span')];
+    if(reduced){f.style.width='100%';ss.forEach(s=>s.classList.add('on'));return;}
+    setTimeout(()=>f.style.width='100%',300); ss.forEach((s,i)=>setTimeout(()=>s.classList.add('on'),400+i*700)); } };
+const math = { html:`<div class="c">${eye('Step 3 · Your price')}<h2 class="h2 a1">One $500 deal a week.</h2>
+  <div class="money a2"><span>$500 deal</span><em>×</em><span>4 a month</span><em>=</em><span class="on">$2,000 a month</span></div>
+  <p class="sub a3">I filmed a $500 deal for a phone case in one afternoon.</p></div>` };
+const moneyFact = { html:`<div class="c">${B}<div class="big a1">300</div><h2 class="h3 a2" style="margin-top:3cqh">followers when I started UGC.</h2><p class="sub a3">200+ brand deals later, the following was never the thing.</p></div>` };
+const freeCost = { html:`<div class="c">${eye('What doing nothing costs')}<h2 class="h2 a1">One free video a week.</h2>
+  <div class="money a2"><span>1 a week</span><em>×</em><span>52 weeks</span><em>=</em><span class="on">52 unpaid videos</span></div>
+  <p class="sub a3">That\'s a whole year of work a brand could have paid you for.</p></div>` };
+const counter = (end, h, s, suffix='') => ({ html:`<div class="c">${B}<div class="big a1"><span class="num">0</span>${suffix}</div><h2 class="h3 a2" style="margin-top:3cqh">${h}</h2>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.num'); if(reduced){n.textContent=end;return;}
+    const t0=performance.now(),d=1300;(function tick(now){const p=Math.min(1,(now-t0)/d),e=1-Math.pow(1-p,3);n.textContent=Math.round(end*e);if(p<1)requestAnimationFrame(tick)})(t0);} });
+const quiz = { html:`<div class="c">${B}${eye('Quick quiz before we start')}<h2 class="h2 a1" style="max-width:20ch">True or false: you need a big following to get paid by brands.</h2>
+  <div class="quiz a2"><div class="t">True</div><div class="f">False</div></div>
+  <p class="sub reveal">False. I started at 300 followers. Brands pay for the content. I\'ll show you how.</p></div>`,
+  onMount(el,{reduced}){ const go=()=>{el.querySelector('.f').classList.add('on');el.querySelector('.t').classList.add('off');el.querySelector('.reveal').classList.add('in')}; reduced?go():setTimeout(go,1600);} };
+const shots = (e, h, imgs) => ({ html:`<div class="c">${eye(e)}<h2 class="h3 a1">${h}</h2><div class="shots a2">${imgs.map(i=>`<img src="${I('../proof/'+i)}" alt="">`).join('')}</div></div>` });
+
+const PILLARS = [['The portfolio brands say yes to','Even with zero paid deals'],['The simple first pitch','What I\'d send to land your first paid deal'],['How to price your first deal','So you stop making free content']];
+
+DECK.load([
+/* ===== 1 HOOK ===== */
+full('stand', 'The <span class="r">Proven</span> 3-Step Way Regular Moms Land Paid Brand Deals From Home', 'Even with a small following. Even if you\'ve never been paid by a brand.', {eye:'Free live class · Lauren Waugh', size:'h3', pos:'50% 20%'}),
+quiz,
+full('sofa', 'Grab a notebook. You\'re going to want it.', 'And put your phone on Do Not Disturb. This hour is just for you.', {rt:true, pos:'50% 25%'}),
+split('chair', 'Hey, I\'m Lauren.', 'Stay-at-home mom of two and a full-time UGC creator. I\'ve worked with 200+ brands from my house.', {eye:'Your host tonight', pos:'50% 25%'}),
+yes('Where are you watching from tonight?', 'Tulsa, OK', {bg:'creambg'}),
+yes('Have you ever been paid by a brand? Type YES or NOT YET.', 'NOT YET'),
+text('Tonight is for moms who are <span class="r">done</span> making free content.', 'And ready for brands to actually pay them.'),
+
+/* ===== 2 PAIN ===== */
+cards('Stop me if any of these sound familiar.', [['You keep waiting for more followers','Before you let yourself pitch'],['You made content for a free product','And nobody ever paid you'],['You sent your portfolio','And never heard back'],['A brand asked your rates','And you froze']], 4),
+full('laugh', 'You post. You wait. You check your inbox.', 'And it\'s quiet again.', {pos:'50% 25%'}),
+full('green', 'Everyone says "just pitch brands."', 'Nobody tells you what to send, who to send it to, or what to charge.', {rt:true, pos:'50% 25%'}),
+meter('Most new creators get stuck on the left.', 'They make free content, send a few DMs, hear nothing and decide UGC isn\'t for them.', 18, 'You are here'),
+split('sign', 'You don\'t need a big following.', 'You need a portfolio, a pitch and a price. In that order.', {rev:true, size:'h3', pos:'50% 25%'}),
+yes('Type YES if one of these sounds like you.'),
+
+/* ===== 3 TEASE ===== */
+nodes('Tonight I\'ll walk you through the 3 steps.', PILLARS, {eye:'What you\'ll learn'}),
+killers(false),
+framed('gift-rates.jpg', 'You got a free gift when you signed up.', 'My UGC Rate Cheat Sheet. It\'s waiting in the WhatsApp group.', {eye:'Free gift'}),
+
+/* ===== 4 EXCITE ===== */
+full('phone', 'Imagine opening an email that says "We\'d love to work with you. What\'s your rate?"', 'And knowing exactly what to say.', {rt:true, size:'h3', pos:'50% 20%'}),
+full('sofa2', 'Imagine getting paid for the videos you film during nap time.', '', {rt:true, size:'h3', pos:'50% 25%'}),
+says('leather', 'They rolled their eyes when I said I was going to "make videos." 200+ brand deals later, they\'re asking how.'),
+
+/* ===== 5 MY STORY ===== */
+full('green2', 'So why listen to me?', '', {eye:'My story', pos:'50% 25%'}),
+split('stand2', 'I used to be a scrub tech.', 'Then I became a stay-at-home mom to a 4-year-old and a 2-year-old.', {pos:'50% 25%'}),
+split('laugh2', 'I started UGC last year with about 300 followers.', 'A lot of my reels got under 500 views. I had no idea what I was doing.', {rev:true, pos:'50% 25%'}),
+says('selfie', 'I didn\'t have more time than you. I didn\'t have more followers than you. I had less of an excuse habit.'),
+counter(200, 'brand deals.', 'Walmart, Canva, L\'Or&eacute;al, Charlotte Tilbury and many more.', '+'),
+text('$7K to $10K a month.', 'All from home, around nap time and bedtime.', {eye:'What the steps did'}),
+text('Slow months happen to all of us.', 'August and most of September were beyond slow. Then I contracted almost $4,000 in one day.', {eye:'The honest part', size:'h2'}),
+framed('l-reel-brands.jpg', 'You might know me from here.', 'Some of the brands I worked with in September.', {eye:'@laurenwaughcreative'}),
+says('chair2', 'I\'m not special. I just followed the steps and didn\'t give up in the slow months.'),
+
+/* ===== 6 PARADIGM ===== */
+divider('Before we start', 'The <span style="color:#f6cbe9">biggest</span> mistake new creators make'),
+compare('There are two ways to try UGC.', 'Hoping', ['Wait for brands to find you','Say yes to free product forever','Guess your rate when they ask'], 'Steps', ['A portfolio that answers every question','A simple pitch, sent every week','A rate you can say without freezing']),
+killers(true),
+split('green', 'When you wait for brands to find you, you\'re waiting for something that rarely comes.', 'Brands hire the creators who reach out.', {pos:'50% 25%'}),
+full('stand3', 'And here\'s the truth: it\'s not your fault.', 'Nobody teaches this part. You\'re piecing it together from saved posts.', {rt:true, pos:'50% 20%'}),
+myth('You need thousands of followers to get paid.', 'Brands pay UGC creators for the content, not the audience.'),
+moneyFact,
+triangle('Getting paid isn\'t luck.', 'It\'s three steps done in order', ['Portfolio','Pitch','Price']),
+
+/* ===== 7 STEP 1 ===== */
+divider('Step 1 of 3', 'The portfolio brands say yes to', 'Even with zero paid deals.'),
+myth('You need a fancy website and 50 videos.', 'You need one clean page that answers every question.'),
+nodes('Every brand asks 5 questions before they hire you.', [['Who are you?','One line'],['What do you create?','Your best 5 to 10 videos'],['Who have you worked with?','Logos, even gifted ones'],['How does it work?','Your process, step by step'],['What do you charge?','Or how to ask']], {eye:'Step 1 · Your portfolio'}),
+split('chair', 'No paid work yet? Film products you already own.', 'Treat it like a paid job. Brands can\'t tell the difference.', {eye:'Step 1 · Your portfolio', size:'h3', pos:'50% 25%'}),
+compare('Two portfolios. Same creator.', 'Before', ['30 videos in random order','No line about what you do','No way to contact you'], 'After', ['Your best 5 to 10 pieces','Sorted by category','One link, one line, one email']),
+text('Pick your best made videos, not your most viewed.', 'A brand is hiring how it looks, not how many people saw it.', {eye:'Step 1 · Your portfolio', size:'h2'}),
+says('sign', 'You don\'t need a fancy website. You don\'t need 50 videos. You need a clean, professional portfolio.'),
+yes('Type YES if you don\'t have a portfolio yet.'),
+
+/* ===== 7 STEP 2 ===== */
+divider('Step 2 of 3', 'The simple first pitch', 'What I\'d send to land your first paid deal.'),
+myth('A long email about you.', 'A short message about them.'),
+nodes('What goes in your first pitch.', [['Who you are','In one line'],['One video idea','For their product'],['One link','To your portfolio'],['Your rate','Only when they ask']], {eye:'Step 2 · Your pitch'}),
+thermo,
+split('phone', 'Pitch before their season, not after.', 'A brand plans Q4 in the summer. Get there first.', {eye:'Step 2 · Your pitch', size:'h3', pos:'50% 20%'}),
+text('Keep every pitch and follow-up in one place.', 'So nothing slips and nobody gets forgotten.', {eye:'Step 2 · Your pitch', size:'h2'}),
+says('laugh', 'A no, or a quiet week, isn\'t the end. It happens to all of us.'),
+yes('Type YES if you\'ve ever sent a pitch and heard nothing back.'),
+
+/* ===== 7 STEP 3 ===== */
+divider('Step 3 of 3', 'Price your first deal', 'So you stop making free content.'),
+myth('Your rate is one number.', 'Your creation fee and your usage rights are two numbers.'),
+full('green2', 'Freezing when they ask "what\'s your rate?" is the most expensive moment in UGC.', 'So we decide your number before they ask.', {rt:true, size:'h3', pos:'50% 25%'}),
+math,
+cards('Where your number comes from.', [['Creation fee','Your time and your skill'],['Usage rights','How long and where they run it'],['Add-ons','Raw footage, hooks, extra cuts']], 3, {eye:'Step 3 · Your price'}),
+split('stand2', 'Get paid like a business.', 'About 90% of my deals pay a month or more after the work. Plan for it.', {rev:true, eye:'Step 3 · Your price', size:'h3', pos:'50% 25%'}),
+says('selfie3', 'Content creation is a business, not a lottery ticket.'),
+yes('Type YES if you\'ve ever said yes to a free product when you wanted money.'),
+
+/* ===== 8 COMMITMENT ===== */
+triangle('Portfolio. Pitch. Price.', 'Here\'s the whole thing on one slide', ['Portfolio','Pitch','Price']),
+yes('Can you see why waiting for brands never worked?', 'YES', {bg:'creambg'}),
+yes('Can you picture your first "yes, here\'s the contract" email?', 'YES', {bg:'creambg'}),
+full('sofa', 'Think about the last brand you wanted to work with.', 'Which of the three steps was missing?', {pos:'50% 25%'}),
+
+/* ===== 9 TRANSITION ===== */
+split('green', 'Now you know what to do.', 'The hard part is doing it every week, with nobody checking your work.', {pos:'50% 25%'}),
+nodes('From here you\'ve got three paths.', [['Do nothing','Keep making free content'],['Figure it out alone','More saved posts, more guessing'],['Let me help you','90 days, with me in your corner']]),
+freeCost,
+yes('Can I show you how we could work on this together?'),
+
+/* ===== 10 OFFER ===== */
+divider('Introducing', 'The Lock In Mentorship', '90 days with me, from zero to paid brand deals.'),
+nodes('90 days. Done with me.', [['Foundation','Days 1 to 30','1'],['Scale','Days 31 to 60','2'],['Monetize','Days 61 to 90','3']], {eye:'How it works'}),
+cards('Days 1 to 30 · Foundation', [['Your content pillars','What you want to be known for'],['Your portfolio','Built with me, ready to send'],['Your profile','So brands know what you do']], 3, {eye:'The Lock In Mentorship'}),
+cards('Days 31 to 60 · Scale', [['What\'s working','We read your numbers together'],['Repeat your winners','Same format, new topic'],['A weekly rhythm','That fits around your kids']], 3, {eye:'The Lock In Mentorship'}),
+cards('Days 61 to 90 · Monetize', [['Your pitch list','Brands and agencies to send to'],['Your pitches','Checked by me before you send'],['Your rates','So you never freeze again']], 3, {eye:'The Lock In Mentorship'}),
+text('No big following. No fancy website. No more free content.', 'Just a plan, and me in your corner.', {bg:'redbg', size:'h2'}),
+
+/* ===== 11 PRICE (no number) ===== */
+split('chair2', 'There\'s no price on a slide.', 'Every plan is built around where you are now. We talk about fit first.', {eye:'Investment', rev:true, pos:'50% 25%'}),
+
+/* ===== 12 BONUSES ===== */
+framed('gift-rates.jpg', 'Bonus: The UGC Rate Cheat Sheet.', 'What to charge, and what to say when they ask.', {eye:'Bonus #1'}),
+split('sofa2', 'Bonus: My UGC Portfolio Template.', 'The Canva template built on the same structure as my own portfolio.', {eye:'Bonus #2', pos:'50% 25%'}),
+split('laugh2', 'Bonus: A personal UGC audit.', 'I review your pitch, portfolio, rates and profile myself.', {eye:'Bonus #3', rev:true, pos:'50% 25%'}),
+{ html:`<div class="c">${eye('Everything you get')}<h2 class="h2 a1">The Lock In Mentorship</h2><div class="stack a2">
+  ${[['Foundation: pillars, portfolio, profile','Days 1 to 30'],['Scale: what\'s working, repeat it','Days 31 to 60'],['Monetize: pitches, rates, paid deals','Days 61 to 90']].map(r=>`<div class="row"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  ${[['The UGC Rate Cheat Sheet','Bonus'],['My UGC Portfolio Template','Bonus'],['A personal UGC audit','Bonus']].map(r=>`<div class="row bn"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  </div></div>` },
+
+/* ===== 13 RISK REVERSAL ===== */
+full('stand', 'If it\'s not a fit, I\'ll tell you.', 'The call is free. No pressure, no obligation.', {rt:true, eye:'My promise', pos:'50% 20%'}),
+
+/* ===== 14 URGENCY + CTA ===== */
+text('Brands are planning their next season right now, and I only take a few moms at a time.', 'The sooner your portfolio is ready, the sooner you can pitch.', {eye:'Why now', size:'h2'}),
+{ html:`<div class="c redbg">${B}<div class="eye a1">Your next step</div><h1 class="h1 a2" style="max-width:18ch">Book your free Lock In call</h1>
+  <p class="sub a3">We look at where you are, your portfolio and your next 90 days.</p><div class="btn a4">See if you qualify</div></div>` },
+cards('What happens on the call.', [['We look at where you are','Content, portfolio, profile'],['We find your fastest first deal','Who to pitch first'],['You leave with a plan','Whether we work together or not']], 3),
+faq('Do I need a big following?'),
+faq('What if I\'ve never worked with a brand?'),
+faq('I\'m a busy mom. When would I do this?'),
+faq('What if I don\'t have nice equipment?'),
+faq('Is there an application?'),
+full('sign', 'You don\'t need more followers. You need a <span class="r">better plan.</span>', 'Click below and see if you qualify.', {rt:true, size:'h2', pos:'50% 20%'}),
+{ html:`<div class="c">${B}<div class="eye a1">Thanks for staying</div><h2 class="h2 a2">Don\'t forget your free gift.</h2>
+  <div class="a3" style="margin-top:5cqh;display:flex;gap:4cqw;align-items:center"><img class="cover" style="height:46cqh" src="${I('gift-rates.jpg')}" alt=""><div style="text-align:left"><p class="sub" style="margin:0">Your UGC Rate Cheat Sheet is waiting in the WhatsApp group.</p><div class="btn">See if you qualify</div></div></div></div>` }
+]);
+</script>
+</body>
+</html>
